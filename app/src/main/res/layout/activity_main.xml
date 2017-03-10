@@ -15,8 +15,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Digite o seu Peso"
+        android:hint="Digite o seu Peso"
+        android:inputType="numberDecimal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,18 +26,20 @@
 
     <EditText
         android:id="@+id/edAltura"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Digite sua Altura"
+        android:inputType="numberDecimal"
+        android:hint="Digite sua Altura"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/edPeso" />
+        app:layout_constraintTop_toBottomOf="@+id/edPeso"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/btCalcular"
@@ -51,7 +53,8 @@
         app:layout_constraintHorizontal_bias="0.461"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/edAltura"
-        android:onClick="CalcularIMC"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/tvResultado"
@@ -64,6 +67,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.501" />
+        app:layout_constraintHorizontal_bias="0.501"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>
