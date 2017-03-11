@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 //Seta o valor no Textview
                 TextView tvResultado = (TextView) findViewById(R.id.tvResultado);
                 tvResultado.setText(imcTotal);
+                //Exibindo Valor em um Toast
+                Toast.makeText(MainActivity.this, "Seu IMC é: "+imcTotal, Toast.LENGTH_SHORT).show();
             }
         });
     }
