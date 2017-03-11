@@ -20,22 +20,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Instanciar o Botão Calcular
         Button btCalcular = (Button)findViewById(R.id.btCalcular);
+        //Adiciona o Onclick no Botão
         btCalcular.setOnClickListener(new OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
+                //Instanciar o EditText Peso e Altura
                 EditText edPeso = (EditText)findViewById(R.id.edPeso);
                 EditText edAltura = (EditText)findViewById(R.id.edAltura);
 
-
+                //Cria Variaveis que Guarda os Valores dos EditText
                 double peso = Double.parseDouble(edPeso.getText().toString());
                 double altura = Double.parseDouble(edAltura.getText().toString());
 
+                //Faz o calculo do IMC
                 double imc = peso/(altura*altura);
+                //Pasa para o valor para decimal
                 DecimalFormat df = new DecimalFormat("0.##");
+                //Converte para ima string
                 String imcTotal = df.format(imc);
-
+                //Seta o valor no Textview
                 TextView tvResultado = (TextView) findViewById(R.id.tvResultado);
                 tvResultado.setText(imcTotal);
             }
