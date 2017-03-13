@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
+    private String imcTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Instanciar o Botão Calcular
         Button btCalcular = (Button)findViewById(R.id.btCalcular);
+        Button btAlert = (Button)findViewById(R.id.btAlert);
         //Adiciona o Onclick no Botão
         btCalcular.setOnClickListener(new OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -46,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
                 TextView tvResultado = (TextView) findViewById(R.id.tvResultado);
                 tvResultado.setText(imcTotal);
                 //Exibindo Valor em um Toast
+                Toast.makeText(MainActivity.this, "Seu IMC é: "+imcTotal, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btAlert.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Seu IMC é: "+imcTotal, Toast.LENGTH_SHORT).show();
             }
         });
