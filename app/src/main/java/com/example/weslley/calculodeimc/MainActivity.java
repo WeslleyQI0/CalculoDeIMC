@@ -20,23 +20,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Instanciar o Botão Calcular
         Button btCalcular = (Button)findViewById(R.id.btCalcular);
         Button btToast = (Button)findViewById(R.id.btToast);
-        //Adiciona o Onclick no Botão
+
         btCalcular.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 calcularImc();
+                String resultado = String.format("%.2f", calcularImc());
                 TextView tvResultado = (TextView) findViewById(R.id.tvResultado);
-                tvResultado.setText(calcularImc());
+                tvResultado.setText(resultado);
             }
         });
         btToast.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 calcularImc();
-                Toast.makeText(MainActivity.this, "Seu IMC é: "+calcularImc(),Toast.LENGTH_SHORT).show();
+                String resultado = String.format("%.2f", calcularImc());
+                Toast.makeText(MainActivity.this, "Seu IMC é: "+resultado,Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -44,26 +45,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     @TargetApi(Build.VERSION_CODES.N)
-    public String calcularImc() {
-        //Instanciar o EditText Peso e Altura
+    public double calcularImc() {
+
         EditText edPeso = (EditText)findViewById(R.id.edPeso);
         EditText edAltura = (EditText)findViewById(R.id.edAltura);
 
-        //Cria Variaveis que Guarda os Valores dos EditText
         double peso = Double.parseDouble(edPeso.getText().toString());
         double altura = Double.parseDouble(edAltura.getText().toString());
 
-        //Faz o calculo do IMC
         double imc = peso/(altura*altura);
-        //Pasa para o valor para decimal
-        DecimalFormat df = new DecimalFormat("0.##");
-        //Converte para ima string
-        String imcTotal = df.format(imc);
-        //Seta o valor no Textview
-        //TextView tvResultado = (TextView) findViewById(R.id.tvResultado);
-        //tvResultado.setText(imcTotal);
-        //Exibindo Valor em um Toast
-        //Toast.makeText(MainActivity.this, "Seu IMC é: "+imcTotal, Toast.LENGTH_SHORT).show();
-        return imcTotal;
+
+        return imc;
     }
 }
