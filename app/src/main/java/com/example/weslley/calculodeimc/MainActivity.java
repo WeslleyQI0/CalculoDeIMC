@@ -29,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 calcularImc();
                 TextView tvResultado = (TextView) findViewById(R.id.tvResultado);
-                tvResultado.setText("OK");
+                tvResultado.setText(calcularImc());
             }
         });
         btToast.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 calcularImc();
-                Toast.makeText(MainActivity.this, "Seu IMC é: ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Seu IMC é: "+calcularImc(),Toast.LENGTH_SHORT).show();
             }
         });
 
